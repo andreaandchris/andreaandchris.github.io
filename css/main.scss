@@ -1,0 +1,90 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+$black: black;
+$white: white;
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background-size: cover;
+}
+
+header {
+    font-family: 'Abraham Lincoln', serif;
+    color: $black;
+    font-weight: 500;
+    text-align: center;
+    font-size: 8rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding-top: 12rem;
+    width: 100%;
+    
+    span {
+        display: inline-block;
+        position: relative;
+        
+        &:first-child {
+            vertical-align: super;
+            
+            width:40%;
+            text-align: right;
+            
+            /*
+            &:before {
+                display: block;
+                width: 10000px;
+                right: 0;
+                border-bottom: 5px solid black;
+                content: ' ';
+                position: absolute;
+                bottom: 0;
+            }
+            */
+        }
+        
+        &:nth-child(2) {
+            font-size: 12rem;
+            
+            width:10rem;
+            text-align: center;
+        }
+        
+        &:nth-child(3) {
+            vertical-align: baseline;
+            
+            width:40%;
+            text-align: left;
+            
+            /*
+            &:before {
+                display: block;
+                width: 10000px;
+                left: 0;
+                border-top: 5px solid black;
+                content: ' ';
+                position: absolute;
+                top: -1.7rem;
+            }
+            */
+        }
+    }
+    
+    p {
+        font-size: 2rem;
+        margin: 6rem 0 0;
+    }
+}
+
+@font-face {
+    font-family: 'Abraham Lincoln';
+    src: url('AbrahamLincoln.ttf') format('truetype');
+}
