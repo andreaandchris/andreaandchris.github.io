@@ -62,13 +62,13 @@ if (supportsSvg()) {
 				var scale = Math.random() * 0.4 + 0.7;
 				treeContainer.animate({
 					transform: 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')'
-				}, 300, mina.bounce);
+				}, 400, mina.bounce);
 				
 				setTimeout(function() {
 					if (numberOfTrees++ < maxTrees) {
 						growATree();
 					}
-				}, Math.random() * 2000);
+				}, Math.random() * 2500);
 			};
 			
 			var positions = [];
