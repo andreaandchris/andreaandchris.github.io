@@ -2,18 +2,57 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:100,400,400italic);
 
-$black: black;
-$white: white;
+$black: #102013;
+$white: #f9fefb;
+$sun-red: #e68815;
+$sun-glow: #d7a;
 
-html, body {
+@-webkit-keyframes sunrise {
+    to {
+        background-position: 0 0px;
+    }
+}
+
+html {
     padding: 0;
     margin: 0;
+    
+    @media (min-width: 1060px) {
+        font-size: 16px;
+    }
+    
+    @media (max-width: 1059px) {
+        font-size: 14px;
+    }
 }
 
 body {
-    overflow-x: hidden;
-    background-size: cover;
+    padding: 0;
+    margin: 0;
+    
+    font-family: 'Josefin Slab', serif;
+    
+    @media (min-width: 900px) {
+        background-color: $white;
+        background-image: radial-gradient(circle, $sun-red 10%, $sun-glow 12%, mix($sun-glow, $white) 15%, mix($sun-glow, $white, 2) 35%, $white 40%);
+        background-position: 0 25rem;
+        background-repeat: no-repeat;
+        
+        animation: sunrise 54s linear 6s 1 forwards;
+        -webkit-animation: sunrise 54s linear 6s 1 forwards;
+        -mos-animation: sunrise 54s linear 6s 1 forwards;
+        -o-animation: sunrise 54s linear 6s 1 forwards;
+        -ms-animation: sunrise 54s linear 6s 1 forwards;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 100;
+    text-align: center;
+    font-size: 1.8em;
 }
 
 header {
@@ -22,65 +61,104 @@ header {
     font-weight: 500;
     text-align: center;
     font-size: 8rem;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    padding-top: 12rem;
     width: 100%;
+    overflow-x: hidden;
     
-    span {
-        display: inline-block;
-        position: relative;
-        
-        &:first-child {
-            vertical-align: super;
+    @media (min-width: 900px) {
+        span {
+            display: inline-block;
+            position: relative;
             
-            width:40%;
-            text-align: right;
-            
-            /*
-            &:before {
-                display: block;
-                width: 10000px;
-                right: 0;
-                border-bottom: 5px solid black;
-                content: ' ';
-                position: absolute;
-                bottom: 0;
+            &:first-child {
+                vertical-align: super;
+                
+                width:35%;
+                text-align: right;
+                
+                &:before {
+                    display: block;
+                    width: 10000px;
+                    right: 0;
+                    border-bottom: 5px solid $black;
+                    content: ' ';
+                    position: absolute;
+                    bottom: 0;
+                }
             }
-            */
-        }
-        
-        &:nth-child(2) {
-            font-size: 12rem;
             
-            width:10rem;
-            text-align: center;
-        }
-        
-        &:nth-child(3) {
-            vertical-align: baseline;
-            
-            width:40%;
-            text-align: left;
-            
-            /*
-            &:before {
-                display: block;
-                width: 10000px;
-                left: 0;
-                border-top: 5px solid black;
-                content: ' ';
-                position: absolute;
-                top: -1.7rem;
+            &:nth-child(2) {
+                font-size: 12rem;
+                
+                width:10rem;
+                text-align: center;
             }
-            */
+            
+            &:nth-child(3) {
+                vertical-align: baseline;
+                
+                width:35%;
+                text-align: left;
+                
+                &:before {
+                    display: block;
+                    width: 10000px;
+                    left: 0;
+                    border-top: 5px solid $black;
+                    content: ' ';
+                    position: absolute;
+                    top: -1.6rem;
+                }
+            }
         }
+    }
+    
+    @media (max-width: 899px) {
+        span {
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    
+    @media (min-width: 1060px) {
+        padding-top: 10rem;
+    }
+    
+    @media (max-width: 1059px) and (min-width: 800px) {
+        padding-top: 7rem;
+    }
+    
+    @media (max-width: 799px) {
+        padding-top: 4rem;
     }
     
     p {
         font-size: 2rem;
-        margin: 6rem 0 0;
+        margin: 4rem 0;
+        
+        @media (max-width: 400px) {
+            margin: 2rem 0 0;
+        }
+    }
+}
+
+svg#forest {
+    display: block;
+    
+    .tree {
+        fill: $black;
+        stroke: none;
+    }
+}
+
+.page-content {
+    background-color: $black;
+    min-height: 20rem;
+    font-size: 1.5rem;
+    padding: 3em;
+    color: $white;
+    
+    @media (mam-width: 900px) {
+        font-size: 1.7rem;
     }
 }
 
