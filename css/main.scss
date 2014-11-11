@@ -38,10 +38,11 @@ body {
         background-color: $white;
         background-image: radial-gradient(circle, $sun-red 10%, $sun-glow 12%, mix($sun-glow, $white) 15%, mix($sun-glow, $white, 2) 35%, $white 40%);
         background-position: 0 25rem;
+        background-size: 100% 87.5rem;
         background-repeat: no-repeat;
         
         animation: sunrise 54s linear 6s 1 forwards;
-        -webkit-animation: sunrise 54s linear 6s 1 forwards;
+        -webkit-animation: sunrise 4s linear 6s 1 forwards;
         -mos-animation: sunrise 54s linear 6s 1 forwards;
         -o-animation: sunrise 54s linear 6s 1 forwards;
         -ms-animation: sunrise 54s linear 6s 1 forwards;
