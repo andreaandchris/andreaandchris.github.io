@@ -48,6 +48,13 @@ if (supportsSvg()) {
 			var growATree = function() {
 				var treeType = Math.floor(Math.random() * 7);
 				
+				if (treeType == 7) treeType = 6;
+				
+				var reroll = Math.random();
+				if (treeType == 5 && reroll > 0.5) { // roll again, as #tree6 is hard to render
+					treeType = Math.floor(reroll * 7);
+				}
+				
 				var tree = treePaths[treeType].clone();
 				var bbox = tree.getBBox();
 				
@@ -62,7 +69,7 @@ if (supportsSvg()) {
 				var scale = Math.random() * 0.4 + 0.7;
 				treeContainer.animate({
 					transform: 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')'
-				}, 400, mina.bounce);
+				}, 750, mina.elastic);
 				
 				setTimeout(function() {
 					if (numberOfTrees++ < maxTrees) {
