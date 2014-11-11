@@ -35,7 +35,7 @@ if (supportsSvg()) {
 		
 		paper.node.setAttribute('viewBox', '0 0 ' + paper.node.offsetWidth + ' ' + paper.node.offsetHeight);
 		
-		Snap.load('/images/trees.svg', function(trees) {
+		Snap.load('images/trees.svg', function(trees) {
 			var treePaths = [];
 			for (var treeTypeIndex = 1; treeTypeIndex <= 7; treeTypeIndex++) {
 				try {
