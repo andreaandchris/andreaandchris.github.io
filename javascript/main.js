@@ -67,7 +67,7 @@ if (supportsSvg()) {
 
 				treeContainer.animate({
 					transform: transformString
-				}, 750, mina.elastic);
+				}, 750);
 				
 				setTimeout(function() {
 					if (numberOfTrees++ < maxTrees) {
