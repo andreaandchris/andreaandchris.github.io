@@ -62,13 +62,10 @@ if (supportsSvg()) {
 				treeContainer.append(tree);
 				
 				var scale = Math.random() * 0.3 + 0.8;
-				var flip = (Math.random() > 0.5);
+				var flip = (Math.random() > 0.5) ? 1 : -1;
 				
-				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')';
-				if (flip) {
-					transformString += ', scale(-1, 1)';
-				}
-				
+				var transformString = 'translate(' + x + '), matrix(' + (scale * flip) + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - (scale * flip))) + ')';
+
 				treeContainer.animate({
 					transform: transformString
 				}, 750, mina.elastic);
