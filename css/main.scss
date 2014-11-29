@@ -162,13 +162,13 @@ header {
 svg#forest {
     display: block;
     
-    height: 10rem;
-    
     @media (min-width: 1060px) {
+        height: 10rem;
         margin-bottom: -0.5rem;
     }
     
     @media (max-width: 1059px) {
+        height: 150px;
         margin-bottom: -0.1rem;
     }
     
