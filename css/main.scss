@@ -187,7 +187,6 @@ svg#forest {
     min-height: 20rem;
     font-size: 1.54rem;
     line-height: 1.4em;
-    padding: 4rem;
     color: $white;
     
     h2, h3, h4, h5, h6 {
@@ -196,6 +195,14 @@ svg#forest {
     
     @media (max-width: 900px) {
         font-size: 1.9rem;
+    }
+    
+    @media (min-width: 1059px) {
+        padding: 3em;
+    }
+    
+    @media (max-width: 1059px) {
+        padding: 20px;
     }
 }
 
