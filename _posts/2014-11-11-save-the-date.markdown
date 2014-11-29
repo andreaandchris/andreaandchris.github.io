@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Save the date!"
-date: {}
+date: 2014-11-11
 published: true
 ---
 
