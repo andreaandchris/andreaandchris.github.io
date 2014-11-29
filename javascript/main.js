@@ -62,9 +62,8 @@ if (supportsSvg()) {
 				treeContainer.append(tree);
 				
 				var scale = Math.random() * 0.3 + 0.8;
-				var flip = (Math.random() > 0.5) ? 1 : -1;
-				
-				var transformString = 'translate(' + x + '), matrix(' + (scale * flip) + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - (scale * flip))) + ')';
+
+				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')';
 
 				treeContainer.animate({
 					transform: transformString
@@ -80,7 +79,7 @@ if (supportsSvg()) {
 			var positions = [];
 			
 			var numberOfTrees = 0;
-			var maxTrees = Math.round(window.innerWidth / 40);
+			var maxTrees = Math.round(window.innerWidth / 50);
 			if (isNaN(maxTrees)) {
 				maxTrees = NUMBER_OF_TREES;
 			}
