@@ -23,8 +23,12 @@ html {
         font-size: 10px;
     }
     
-    @media (min-height: 550px) {
+    @media (min-height: 550px) and (max-height: 649px) {
         font-size: 12px;
+    }
+    
+    @media (min-height: 650px) and (max-width: 1059px) {
+        font-size: 14px;
     }
     
     @media (min-width: 1060px) {
