@@ -19,12 +19,16 @@ html {
     padding: 0;
     margin: 0;
     
-    @media (min-width: 1060px) {
-        font-size: 16px;
+    @media (max-height: 549px) {
+        font-size: 11px;
     }
     
-    @media (max-width: 1059px) {
-        font-size: 14px;
+    @media (min-height: 550px) {
+        font-size: 12px;
+    }
+    
+    @media (min-width: 1060px) {
+        font-size: 16px;
     }
 }
 
@@ -183,7 +187,7 @@ svg#forest {
     color: $white;
     
     @media (max-width: 900px) {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
     }
 }
 
