@@ -68,9 +68,9 @@ if (supportsSvg()) {
 				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')';
 
 				if (lowPerformance) {
-					treeContainer.animate({
+					treeContainer.attr({
 						transform: transformString
-					}, 500);
+					});
 				} else {
 					treeContainer.animate({
 						transform: transformString
