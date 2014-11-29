@@ -82,8 +82,8 @@ if (supportsSvg()) {
 			}
 			
 			for (var treeIndex = 0; treeIndex < maxTrees; treeIndex++) {
-				positions.push(window.innerWidth * (treeIndex + 0.3) / maxTrees);
-				positions.push(window.innerWidth * (treeIndex + 0.7) / maxTrees);
+				positions.push(window.innerWidth * (treeIndex - 0.25) / maxTrees);
+				positions.push(window.innerWidth * (treeIndex + 0.25) / maxTrees);
 			}
 			
 			positions.sort(function(a, b) {
