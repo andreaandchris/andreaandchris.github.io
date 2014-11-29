@@ -1,6 +1,8 @@
 var TREE_OVERLAP = 4;
 var NUMBER_OF_TREES = 15;
 
+var lowPerformance = (window.innerWidth < 1000);
+
 function supportsSvg() {
 	return document.implementation &&
 		(
@@ -65,9 +67,15 @@ if (supportsSvg()) {
 
 				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')';
 
-				treeContainer.animate({
-					transform: transformString
-				}, 750);
+				if (lowPerformance) {
+					treeContainer.animate({
+						transform: transformString
+					}, 500);
+				} else {
+					treeContainer.animate({
+						transform: transformString
+					}, 750, mina.elastic);
+				}
 				
 				setTimeout(function() {
 					if (numberOfTrees++ < maxTrees) {
@@ -93,7 +101,12 @@ if (supportsSvg()) {
 				return Math.random() - 0.5;	
 			});
 			
-			setTimeout(growATree(), 2000);
+			if (lowPerformance) {
+				growATree();
+			} else {
+				setTimeout(growATree(), 2000);
+			}
+			
 			numberOfTrees++;
 			
 		});
