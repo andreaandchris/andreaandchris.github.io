@@ -11,13 +11,7 @@ $sun-glow: #d7a;
 
 @-webkit-keyframes sunrise {
     to {
-        @media (min-width: 900px) {
-            background-position: 0 13vh;
-        }
-        
-        @media (max-width: 899px) {
-            background-position: 0 4vh;
-        }
+        background-position: 0 13vh;
     }
 }
 
