@@ -41,8 +41,15 @@ body {
     background-color: $white;
     background-image: radial-gradient(circle, $sun-red 10%, $sun-glow 12%, mix($sun-glow, $white) 15%, mix($sun-glow, $white, 2) 35%, $white 40%);
     background-position: 0 30vh;
-    background-size: 100% 180vh;
     background-repeat: no-repeat;
+    
+    @media (max-width: 899px) {
+        background-size: 100% 180vh;
+    }
+    
+    @media (min-width: 900px) {
+        background-size: 100%;
+    }
     
     animation: sunrise 60s linear 0s 1 forwards;
     -webkit-animation: sunrise 60s linear 0s 1 forwards;
