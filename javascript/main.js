@@ -57,11 +57,7 @@ if (supportsSvg()) {
 				
 				var x = positions.pop();//Math.round(paper.node.offsetWidth * (Math.random() * 1.1 - 0.05));
 			
-				var treeContainer = paper.g().attr({
-					transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + 150 + ')'
-				});
-				
-				treeContainer.append(tree);
+				var treeContainer = paper.g();
 				
 				var scale = Math.random() * 0.3 + 0.8;
 
@@ -69,9 +65,20 @@ if (supportsSvg()) {
 
 				if (lowPerformance) {
 					treeContainer.attr({
+						opacity: 0,
 						transform: transformString
 					});
+					treeContainer.append(tree);
+					
+					treeContainer.animate({
+						opacity: 1
+					}, 500, mina.easeInOut);
 				} else {
+					treeContainer.attr({
+						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + 150 + ')'
+					});
+					treeContainer.append(tree);
+					
 					treeContainer.animate({
 						transform: transformString
 					}, 750, mina.elastic);
