@@ -19,15 +19,11 @@ html {
     padding: 0;
     margin: 0;
     
-    @media (max-height: 549px) {
-        font-size: 10px;
-    }
-    
-    @media (min-height: 550px) and (max-height: 649px) {
+    @media (max-width: 599) {
         font-size: 12px;
     }
     
-    @media (min-height: 650px) and (max-width: 1059px) {
+    @media (min-width: 600px) and (max-width: 1059px) {
         font-size: 14px;
     }
     
@@ -42,7 +38,7 @@ body {
     
     font-family: 'Josefin Slab', serif;
     
-    @media (min-width: 1060px) {
+    @media (min-width: 1060px) { // Could be for everything
         background-color: $white;
         background-image: radial-gradient(circle, $sun-red 10%, $sun-glow 12%, mix($sun-glow, $white) 15%, mix($sun-glow, $white, 2) 35%, $white 40%);
         background-position: 0 20rem;
@@ -82,9 +78,10 @@ header {
     color: $black;
     font-weight: 500;
     text-align: center;
-    font-size: 8rem;
+    font-size: 16vh;
     width: 100%;
     overflow-x: hidden;
+    padding-top: 20vh;
     
     @media (min-width: 900px) {
         span {
@@ -109,9 +106,9 @@ header {
             }
             
             &:nth-child(2) {
-                font-size: 12rem;
+                font-size: 24vh;
                 
-                width:10rem;
+                width: 20vh;
                 text-align: center;
             }
             
@@ -128,7 +125,7 @@ header {
                     border-top: 5px solid $black;
                     content: ' ';
                     position: absolute;
-                    top: -1.6rem;
+                    top: -3.2vh;
                 }
             }
         }
@@ -141,40 +138,16 @@ header {
         }
     }
     
-    @media (min-width: 1060px) {
-        padding-top: 10rem;
-    }
-    
-    @media (max-width: 1059px) and (min-width: 800px) {
-        padding-top: 7rem;
-    }
-    
-    @media (max-width: 799px) {
-        padding-top: 4rem;
-    }
-    
     p {
-        font-size: 2rem;
-        margin: 4rem 0;
-        
-        @media (max-width: 400px) {
-            margin: 2rem 0 0;
-        }
+        font-size: 4vh;
+        margin: 8vh 0;
     }
 }
 
 svg#forest {
     display: block;
-    
-    @media (min-width: 1060px) {
-        height: 10rem;
-        margin-bottom: -0.5rem;
-    }
-    
-    @media (max-width: 1059px) {
-        height: 150px;
-        margin-bottom: -0.1rem;
-    }
+    height: 20vh;
+    margin-bottom: -1vh;
     
     .tree {
         fill: $black;
@@ -188,6 +161,7 @@ svg#forest {
     font-size: 1.54rem;
     line-height: 1.4em;
     color: $white;
+    padding: 6vh;
     
     h2, h3, h4, h5, h6 {
         line-height: 1.1em;
@@ -195,14 +169,6 @@ svg#forest {
     
     @media (max-width: 900px) {
         font-size: 1.9rem;
-    }
-    
-    @media (min-width: 1059px) {
-        padding: 3em;
-    }
-    
-    @media (max-width: 1059px) {
-        padding: 20px;
     }
 }
 
