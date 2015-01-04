@@ -76,11 +76,11 @@ header {
     color: $black;
     font-weight: 500;
     text-align: center;
-    font-size: 16vh;
     width: 100%;
     overflow-x: hidden;
     
     @media (min-width: 900px) {
+        font-size: 16vh;
         padding-top: 22vh;
     
         span {
@@ -136,6 +136,7 @@ header {
     }
     
     @media (max-width: 899px) {
+        font-size: 15vh;
         padding-top: 16vh;
         
         span {
