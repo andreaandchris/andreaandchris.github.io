@@ -79,9 +79,10 @@ header {
     font-size: 16vh;
     width: 100%;
     overflow-x: hidden;
-    padding-top: 22vh;
     
     @media (min-width: 900px) {
+        padding-top: 22vh;
+    
         span {
             display: inline-block;
             position: relative;
@@ -127,18 +128,26 @@ header {
                 }
             }
         }
+        
+        p {
+            font-size: 4vh;
+            margin: 12vh 0 16vh;
+        }
     }
     
     @media (max-width: 899px) {
+        padding-top: 16vh;
+        
         span {
             display: inline-block;
             width: 100%;
         }
-    }
-    
-    p {
-        font-size: 4vh;
-        margin: 12vh 0 16vh;
+        
+        p {
+            font-size: 3vh;
+            line-height: 4vh;
+            padding: 1vh;
+        }
     }
 }
 
