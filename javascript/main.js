@@ -11,7 +11,7 @@ function supportsSvg() {
 		);
 }
 	
-function getTree(trees, selector, viewportWidth) {
+function getTree(trees, selector, viewportHeight) {
 	var tree = trees.select(selector).attr({
 		'class': 'tree'
 	});
@@ -24,7 +24,7 @@ function getTree(trees, selector, viewportWidth) {
 
 	tree.transform(
 		'S 0.3 0.3 0 0' + 
-		'T ' + (-1 * bbox.x) + ' ' + (viewportWidth + TREE_OVERLAP - bbox.y2)
+		'T ' + (-1 * bbox.x) + ' ' + (viewportHeight + TREE_OVERLAP - bbox.y2)
 	);
 
 	return tree;
@@ -43,7 +43,7 @@ if (supportsSvg()) {
 			var treePaths = [];
 			for (var treeTypeIndex = 1; treeTypeIndex <= 7; treeTypeIndex++) {
 				try {
-					treePaths.push(getTree(trees, '#tree' + treeTypeIndex, viewportWidth));
+					treePaths.push(getTree(trees, '#tree' + treeTypeIndex, viewportHeight));
 				} catch (error) {
 					console.log(error);
 				}
@@ -63,7 +63,7 @@ if (supportsSvg()) {
 				
 				var scale = Math.random() * 0.3 + 0.8;
 
-				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (viewportWidth * (1 - scale)) + ')';
+				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (viewportHeight * (1 - scale)) + ')';
 
 				if (lowPerformance) {
 					treeContainer.attr({
@@ -77,7 +77,7 @@ if (supportsSvg()) {
 					}, 500, mina.easeInOut);
 				} else {
 					treeContainer.attr({
-						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + viewportWidth + ')'
+						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + viewportHeight + ')'
 					});
 					treeContainer.append(tree);
 					
