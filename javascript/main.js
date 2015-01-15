@@ -2,6 +2,7 @@ var TREE_OVERLAP = 4;
 var NUMBER_OF_TREES = 15;
 
 var lowPerformance = (window.innerWidth < 1000);
+var mobile = (window.innerWidth < 800);
 
 function supportsSvg() {
 	return document.implementation &&
@@ -39,85 +40,90 @@ if (supportsSvg()) {
 		var viewportWidth = viewportHeight * paper.node.offsetWidth / paper.node.offsetHeight;
 		paper.node.setAttribute('viewBox', '0 0 ' + viewportWidth + ' ' + viewportHeight);
 		
-		Snap.load('images/trees.svg', function(trees) {
-			var treePaths = [];
-			for (var treeTypeIndex = 1; treeTypeIndex <= 7; treeTypeIndex++) {
-				try {
-					treePaths.push(getTree(trees, '#tree' + treeTypeIndex, viewportHeight));
-				} catch (error) {
-					console.log(error);
-				}
-			}
-			
-			var growATree = function() {
-				var treeType = Math.floor(Math.random() * 7);
-				
-				if (treeType == 7) treeType = 6;
-				
-				var tree = treePaths[treeType].clone();
-				var bbox = tree.getBBox();
-				
-				var x = positions.pop();
-			
-				var treeContainer = paper.g();
-				
-				var scale = Math.random() * 0.3 + 0.8;
-
-				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (viewportHeight * (1 - scale)) + ')';
-
-				if (lowPerformance) {
-					treeContainer.attr({
-						opacity: 0,
-						transform: transformString
-					});
-					treeContainer.append(tree);
-					
-					treeContainer.animate({
-						opacity: 1
-					}, 500, mina.easeInOut);
-				} else {
-					treeContainer.attr({
-						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + viewportHeight + ')'
-					});
-					treeContainer.append(tree);
-					
-					treeContainer.animate({
-						transform: transformString
-					}, 750, mina.elastic);
-				}
-				
-				setTimeout(function() {
-					if (numberOfTrees++ < maxTrees) {
-						growATree();
+		if (! mobile) {
+			Snap.load('images/trees.svg', function(trees) {
+				var treePaths = [];
+				for (var treeTypeIndex = 1; treeTypeIndex <= 7; treeTypeIndex++) {
+					try {
+						treePaths.push(getTree(trees, '#tree' + treeTypeIndex, viewportHeight));
+					} catch (error) {
+						console.log(error);
 					}
-				}, Math.random() * 2500);
-			};
-			
-			var positions = [];
-			
-			var numberOfTrees = 0;
-			var maxTrees = Math.round(window.innerWidth / 50);
-			if (isNaN(maxTrees)) {
-				maxTrees = NUMBER_OF_TREES;
-			}
-			
-			for (var treeIndex = 0; treeIndex < maxTrees; treeIndex++) {
-				positions.push(viewportWidth * (treeIndex - 0.25) / maxTrees);
-				positions.push(viewportWidth * (treeIndex + 0.25) / maxTrees);
-			}
-			
-			positions.sort(function(a, b) {
-				return Math.random() - 0.5;	
+				}
+				
+				var growATree = function() {
+					var treeType = Math.floor(Math.random() * 7);
+					
+					if (treeType == 7) treeType = 6;
+					
+					var tree = treePaths[treeType].clone();
+					var bbox = tree.getBBox();
+					
+					var x = positions.pop();
+				
+					var treeContainer = paper.g();
+					
+					var scale = Math.random() * 0.3 + 0.8;
+	
+					var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (viewportHeight * (1 - scale)) + ')';
+	
+					if (lowPerformance) {
+						treeContainer.attr({
+							opacity: 0,
+							transform: transformString
+						});
+						treeContainer.append(tree);
+						
+						treeContainer.animate({
+							opacity: 1
+						}, 500, mina.easeInOut);
+					} else {
+						treeContainer.attr({
+							transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + viewportHeight + ')'
+						});
+						treeContainer.append(tree);
+						
+						treeContainer.animate({
+							transform: transformString
+						}, 750, mina.elastic);
+					}
+					
+					setTimeout(function() {
+						if (numberOfTrees++ < maxTrees) {
+							growATree();
+						}
+					}, Math.random() * 2500);
+				};
+				
+				var positions = [];
+				
+				var numberOfTrees = 0;
+				var maxTrees = Math.round(window.innerWidth / 50);
+				if (isNaN(maxTrees)) {
+					maxTrees = NUMBER_OF_TREES;
+				}
+				
+				for (var treeIndex = 0; treeIndex < maxTrees; treeIndex++) {
+					positions.push(viewportWidth * (treeIndex - 0.25) / maxTrees);
+					positions.push(viewportWidth * (treeIndex + 0.25) / maxTrees);
+				}
+				
+				positions.sort(function(a, b) {
+					return Math.random() - 0.5;	
+				});
+				
+				if (lowPerformance) {
+					growATree();
+				} else {
+					setTimeout(growATree(), 2000);
+				}
+				
+				numberOfTrees++;
+				
 			});
-			
-			if (lowPerformance) {
-				growATree();
-			} else {
-				setTimeout(growATree(), 2000);
-			}
-			
-			numberOfTrees++;
-			
-		});
+		} else {
+			var emptySVG = document.getElementById('forest');
+			emptySVG.parent.removeChild(emptySVG);
+		}
 	};
 }
