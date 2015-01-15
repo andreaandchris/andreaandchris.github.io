@@ -24,7 +24,7 @@ function getTree(trees, selector) {
 
 	tree.transform(
 		'S 0.3 0.3 0 0' + 
-		'T ' + (-1 * bbox.x) + ' ' + (150 + TREE_OVERLAP - bbox.y2)
+		'T ' + (-1 * bbox.x) + ' ' + (viewportWidth + TREE_OVERLAP - bbox.y2)
 	);
 
 	return tree;
@@ -35,7 +35,9 @@ if (supportsSvg()) {
 		
 		var paper = Snap('#forest');
 		
-		paper.node.setAttribute('viewBox', '0 0 ' + paper.node.offsetWidth + ' 150');
+		var viewportHeight = 150;
+		var viewportWidth = viewportHeight * paper.node.offsetWidth / paper.node.offsetHeight;
+		paper.node.setAttribute('viewBox', '0 0 ' + viewportWidth + ' ' + viewportHeight);
 		
 		Snap.load('images/trees.svg', function(trees) {
 			var treePaths = [];
@@ -55,13 +57,13 @@ if (supportsSvg()) {
 				var tree = treePaths[treeType].clone();
 				var bbox = tree.getBBox();
 				
-				var x = positions.pop();//Math.round(paper.node.offsetWidth * (Math.random() * 1.1 - 0.05));
+				var x = positions.pop();
 			
 				var treeContainer = paper.g();
 				
 				var scale = Math.random() * 0.3 + 0.8;
 
-				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (150 * (1 - scale)) + ')';
+				var transformString = 'translate(' + x + '), matrix(' + scale + ' 0 0 ' + scale + ' 0 ' + (viewportWidth * (1 - scale)) + ')';
 
 				if (lowPerformance) {
 					treeContainer.attr({
@@ -75,7 +77,7 @@ if (supportsSvg()) {
 					}, 500, mina.easeInOut);
 				} else {
 					treeContainer.attr({
-						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + 150 + ')'
+						transform: 'translate(' + x + '), matrix(0.5 0 0 0 ' + (bbox.cx * 0.5) + ' ' + viewportWidth + ')'
 					});
 					treeContainer.append(tree);
 					
@@ -100,8 +102,8 @@ if (supportsSvg()) {
 			}
 			
 			for (var treeIndex = 0; treeIndex < maxTrees; treeIndex++) {
-				positions.push(window.innerWidth * (treeIndex - 0.25) / maxTrees);
-				positions.push(window.innerWidth * (treeIndex + 0.25) / maxTrees);
+				positions.push(viewportWidth * (treeIndex - 0.25) / maxTrees);
+				positions.push(viewportWidth * (treeIndex + 0.25) / maxTrees);
 			}
 			
 			positions.sort(function(a, b) {
