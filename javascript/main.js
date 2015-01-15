@@ -123,6 +123,9 @@ if (supportsSvg()) {
 			});
 		} else {
 			var emptySVG = document.getElementById('forest');
+			var staticSVG = document.createElement('img');
+			staticSVG.setAttribute('id', 'static-forest');
+			staticSVG.setAttribute('src', '/images/static-forest.svg');
 			emptySVG.parentElement.removeChild(emptySVG);
 		}
 	};

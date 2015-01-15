@@ -159,7 +159,7 @@ header {
     }
 }
 
-svg#forest {
+#forest {
     display: block;
     height: 20vh;
 
@@ -167,6 +167,12 @@ svg#forest {
         fill: $black;
         stroke: none;
     }
+}
+
+#static-forest {
+    display: block;
+    height: 20vh;
+    width: 100%;
 }
 
 .page-content {
