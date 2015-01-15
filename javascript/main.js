@@ -11,7 +11,7 @@ function supportsSvg() {
 		);
 }
 	
-function getTree(trees, selector) {
+function getTree(trees, selector, viewportWidth) {
 	var tree = trees.select(selector).attr({
 		'class': 'tree'
 	});
@@ -43,7 +43,7 @@ if (supportsSvg()) {
 			var treePaths = [];
 			for (var treeTypeIndex = 1; treeTypeIndex <= 7; treeTypeIndex++) {
 				try {
-					treePaths.push(getTree(trees, '#tree' + treeTypeIndex));
+					treePaths.push(getTree(trees, '#tree' + treeTypeIndex, viewportWidth));
 				} catch (error) {
 					console.log(error);
 				}
