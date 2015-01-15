@@ -123,7 +123,7 @@ if (supportsSvg()) {
 			});
 		} else {
 			var emptySVG = document.getElementById('forest');
-			emptySVG.parent.removeChild(emptySVG);
+			emptySVG.parentElement.removeChild(emptySVG);
 		}
 	};
 }
