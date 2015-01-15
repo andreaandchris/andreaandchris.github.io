@@ -126,6 +126,8 @@ if (supportsSvg()) {
 			var staticSVG = document.createElement('img');
 			staticSVG.setAttribute('id', 'static-forest');
 			staticSVG.setAttribute('src', '/images/static-forest.svg');
+			
+			emptySVG.parentElement.insertBefore(staticSVG, emptySVG);
 			emptySVG.parentElement.removeChild(emptySVG);
 		}
 	};
