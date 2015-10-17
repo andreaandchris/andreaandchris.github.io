@@ -5,5 +5,15 @@ layout: default
 <article>
     <h2>{{ post.title }}</h2>
     {{ post.content }}
+    {% if post.layout == "upload" %}
+    <form action=" andreaandchris.us.s3-website-eu-west-1.amazonaws.com/" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="key" value="${filename}">
+
+      <label>Choose a picture</label>
+      <input name="file" type="file"> 
+      <br> 
+      <input type="submit" value="Send"> 
+    </form> 
+    {% endif %}
 </article>
 {% endfor %}
