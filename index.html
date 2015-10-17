@@ -6,12 +6,12 @@ layout: default
     <h2>{{ post.title }}</h2>
     {{ post.content }}
     {% if post.layout == "upload" %}
-    <form action="http://s3.amazonaws.com/andreaandchris.us" method="post" enctype="multipart/form-data">
+    <form action="http://andreaandchris.us.s3-website-eu-west-1.amazonaws.com" method="post" enctype="multipart/form-data">
         <input type="hidden" name="key" value="${filename}" />
         <input type="hidden" name="acl" value="public-read" />
         <input type="hidden" name="AWSAccessKeyId" value="AKIAJAKCBCRJ5P2JJL2A" />
-        <input type="hidden" name="policy" value="ewogICJleHBpcmF0aW9uIjogIjIwMTktMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImJ1Y2tldCI6ICJhbmRyZWFhbmRjaHJpcy51cyIgfSwKICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIiB9LAogICAgWyJzdGFydHMtd2l0aCIsICIkQ29udGVudC1UeXBlIiwgImltYWdlLyJdLAogIF0KfQo=" />
-        <input type="hidden" name="signature" value="7xIG8qWQZ6eEFPHAS+5yegpEYU0=" />
+        <input type="hidden" name="policy" value="ewogICJleHBpcmF0aW9uIjogIjIwMTktMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImJ1Y2tldCI6ICJhbmRyZWFhbmRjaHJpcy51cyIgfSwKICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIiB9CiAgXQp9Cg==" />
+        <input type="hidden" name="signature" value="FKCmtq0rOe+dtmjDcita8Iu/Px0=" />
         <label>Choose a picture</label><input name="file" type="file" />
         <input name="submit" value="Upload" type="submit" />
     </form>
