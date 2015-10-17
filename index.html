@@ -6,7 +6,7 @@ layout: default
     <h2>{{ post.title }}</h2>
     {{ post.content }}
     {% if post.layout == "upload" %}
-    <form action=" andreaandchris.us.s3-website-eu-west-1.amazonaws.com/" method="post" enctype="multipart/form-data">
+    <form action="https://andreaandchris.us.s3-website-eu-west-1.amazonaws.com/" method="post" enctype="multipart/form-data">
       <input type="hidden" name="key" value="${filename}">
 
       <label>Choose a picture</label>
