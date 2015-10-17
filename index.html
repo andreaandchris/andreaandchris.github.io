@@ -9,10 +9,10 @@ layout: default
     <form action="http://andreaandchris.us.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
         <input type="hidden" name="key" value="wedding/${filename}" />
         <input type="hidden" name="acl" value="public-read" />
+        <input type="hidden" name="success_action_redirect" value="http://andreaandchris.us" />
         <input type="hidden" name="AWSAccessKeyId" value="AKIAJFFH4DT5LL7MEEVA" />
         <input type="hidden" name="policy" value="ewogICJleHBpcmF0aW9uIjogIjIwMTktMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImJ1Y2tldCI6ICJhbmRyZWFhbmRjaHJpcy51cyIgfSwKICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIiB9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgIndlZGRpbmcvIl0sCiAgXQp9Cg==" />
         <input type="hidden" name="signature" value="eCfWo26nT8ucuJTA26Gncnh5RQw=" />
-        <input type="hidden" name="success_action_redirect" value="http://andreaandchris.us" />
         <label>Choose a picture</label><input name="file" type="file" />
         <input name="submit" value="Upload" type="submit" />
     </form>
