@@ -6,14 +6,16 @@ layout: default
     <h2>{{ post.title }}</h2>
     {{ post.content }}
     {% if post.layout == "upload" %}
-    <form action="https://andreaandchris.us.s3-website-eu-west-1.amazonaws.com/" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="key" value="${filename}">
-
-      <label>Choose a picture</label>
-      <input name="file" type="file"> 
-      <br> 
-      <input type="submit" value="Send"> 
-    </form> 
+    <form action="http://s3.amazonaws.com/andreaandchris.us" method="post" enctype="multipart/form-data">
+        <input type="text" name="key" value="testfile.txt" />
+        <input type="text" name="acl" value="public-read" />
+        <input type="text" name="content-type" value="text/plain" />
+        <input type="hidden" name="AWSAccessKeyId" value="AKIAJAKCBCRJ5P2JJL2A" />
+        <input type="hidden" name="policy" value="ewogICJleHBpcmF0aW9uIjogIjIwMTktMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImJ1Y2tldCI6ICJhbmRyZWFhbmRjaHJpcy51cyIgfSwKICAgIHsiYWNsIjogInB1YmxpYy1yZWFkIiB9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInRlc3RmaWxlMi50eHQiXSwKICAgIFsic3RhcnRzLXdpdGgiLCAiJENvbnRlbnQtVHlwZSIsICJpbWFnZS8iXSwKICBdCn0K" />
+        <input type="hidden" name="signature" value="/G5oVWUCmY2+OzEsuOwYHZZRe+8=" />
+        <label>Choose a picture</label><input name="file" type="file" />
+        <input name="submit" value="Upload" type="submit">Upload</input>
+    </form>
     {% endif %}
 </article>
 {% endfor %}
