@@ -1,5 +1,6 @@
 ---
-published: false
+published: true
+layout: update
 ---
 
 ## Send us your photos
