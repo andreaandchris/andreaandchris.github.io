@@ -37,7 +37,7 @@ if (supportsSvg()) {
 		var paper = Snap('#forest');
 		
 		var viewportHeight = 150;
-		var viewportWidth = viewportHeight * paper.node.width.baseVal.value / paper.node.offsetHeight;
+		var viewportWidth = viewportHeight * paper.node.width.baseVal.value / paper.node.height.baseVal.value;
 		paper.node.setAttribute('viewBox', '0 0 ' + viewportWidth + ' ' + viewportHeight);
 		
 		if (! mobile) {
